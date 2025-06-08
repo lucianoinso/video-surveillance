@@ -35,7 +35,7 @@ def receive_video():
 
                 date_str = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
 
-                # Classify after 250 ms
+                # Classify after 1000 ms
                 if time.time() - last_called >= 1:
                     class_name, confidence_level = classify(model, frame)
                     last_called = time.time()
