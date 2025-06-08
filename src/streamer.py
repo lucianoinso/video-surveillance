@@ -7,6 +7,7 @@ cap = cv2.VideoCapture(2)  # use /dev/video2
 # Stream properties
 WIDTH = 320
 HEIGHT = 240
+IMAGE_QUALITY = 80 # from 0 to 100
 
 def generate_frames():
     while True:
@@ -19,7 +20,8 @@ def generate_frames():
             frame = cv2.flip(frame, 0)
 
             # Encode as JPEG
-            ret, buffer = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 80])
+            ret, buffer = cv2.imencode('.jpg', frame,
+                                       [cv2.IMWRITE_JPEG_QUALITY, IMAGE_QUALITY])
             if not ret:
                 continue
 
